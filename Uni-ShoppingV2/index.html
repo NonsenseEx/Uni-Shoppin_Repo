@@ -13,10 +13,14 @@
     </header>
 
     <div class="side-ribbon left">
-        <div class="ribbon-track" id="track-left"><img src="img/Fondo lat 1.webp" alt=""></div>
+        <div class="ribbon-track" id="track-left">
+            <img src="img/Fondo lat 1.webp" alt="Decoración">
+        </div>
     </div>
     <div class="side-ribbon right">
-        <div class="ribbon-track" id="track-right"><img src="img/Fondo lat 1.webp" alt=""></div>
+        <div class="ribbon-track" id="track-right">
+            <img src="img/Fondo lat 1.webp" alt="Decoración">
+        </div>
     </div>
 
     <nav class="navbar">
@@ -32,47 +36,57 @@
     <main class="container">
         <section id="catalogo" class="styled-box">
             <h2 class="section-title">Catálogo de Productos</h2>
-            <div class="catalog-window" id="catalog-window">
-                </div>
+            <div class="catalog-window" id="catalog-window"></div>
             
             <div class="center-btn-container">
                 <button id="btn-show-form" class="btn-square-add">Añadir Nuevo Artículo (+)</button>
             </div>
 
             <div id="add-form-container" class="hidden-form">
-                <h3>Añadir Nuevo Producto</h3>
+                <h3 id="form-title">Añadir Nuevo Producto</h3>
                 <form id="item-form">
+                    <input type="hidden" id="edit-index" value="-1">
                     <div class="input-row">
                         <input type="text" id="item-name" placeholder="Nombre del Producto" required>
                         <input type="number" id="item-price" placeholder="Precio ($)" required>
                     </div>
                     <textarea id="item-desc" placeholder="Descripción del producto" rows="3" required></textarea>
-                    <button type="submit" class="btn-primary">Añadir al Catálogo</button>
+                    <button type="submit" id="btn-submit-item" class="btn-primary">Guardar en Catálogo</button>
                     <button type="button" id="btn-cancel-form" class="btn-secondary">Cancelar</button>
                 </form>
             </div>
         </section>
 
         <footer class="styled-box">
-            <h2>Contacto</h2>
+            <h2>Información de Contacto</h2>
             <p>Libertad 1520, Santiago Centro | soporte@unishopping.cl</p>
         </footer>
     </main>
 
+    <div id="about-modal" class="modal-overlay">
+        <div class="styled-box modal-content">
+            <span class="close-modal" data-modal="about-modal">&times;</span>
+            <h2>Sobre Uni-Shoppin</h2>
+            <p>Bienvenido a Uni-Shoppin, tu destino definitivo para la tecnología de vanguardia y el hardware de alto rendimiento. Nacidos de la pasión por la computación y el gaming, nos hemos consolidado en Maipú como un referente para estudiantes, profesionales y entusiastas que buscan llevar su experiencia digital al siguiente nivel.
+
+En Uni-Shoppin, no solo ofrecemos periféricos y componentes; entregamos herramientas diseñadas para potenciar tu productividad y creatividad. Nuestra selección incluye desde teclados mecánicos con interruptores magnéticos hasta sistemas de almacenamiento de última generación, siempre bajo un estándar de calidad riguroso.</p>
+        </div>
+    </div>
+
     <div id="feedback-modal" class="modal-overlay">
         <div class="styled-box modal-content">
-            <span id="btn-close-feedback" class="close-modal">&times;</span>
-            <h2>Reclamos y Sugerencias</h2>
+            <span class="close-modal" data-modal="feedback-modal">&times;</span>
+            <h2>Formulario de Reclamos</h2>
             <form id="user-feedback-form">
                 <div class="input-row">
-                    <input type="text" id="f-name" placeholder="Nombre Completo" required>
+                    <input type="text" id="f-name" placeholder="Nombre Completo (Sin números)" required>
                     <input type="text" id="f-phone" placeholder="Teléfono (Solo números)" required>
                 </div>
                 <div class="input-row">
                     <div class="rut-fields">
-                        <input type="text" id="rut-body" placeholder="RUT (Números)" required>
+                        <input type="text" id="rut-body" placeholder="RUT (Solo números)" required>
                         <span class="hyphen">-</span>
-                        <input type="text" id="rut-dv" placeholder="K" maxlength="1" required>
+                        <input type="text" id="rut-dv" placeholder="DV (0-9 o K)" maxlength="1" required>
                     </div>
                     <input type="email" id="f-email" placeholder="Correo Electrónico" required>
                 </div>
@@ -82,17 +96,9 @@
         </div>
     </div>
 
-    <div id="about-modal" class="modal-overlay">
-        <div class="styled-box modal-content">
-            <span id="btn-close-about" class="close-modal">&times;</span>
-            <h2>Sobre Uni-Shoppin</h2>
-            <p>Somos tu plataforma tecnológica de confianza. Ofrecemos los mejores componentes y periféricos en Maipú con un servicio eficiente.</p>
-        </div>
-    </div>
-
     <div id="cart-modal" class="modal-overlay">
         <div class="styled-box modal-content">
-            <span id="btn-close-cart" class="close-modal">&times;</span>
+            <span class="close-modal" data-modal="cart-modal">&times;</span>
             <h2>Tu Carrito</h2>
             <div class="cart-selection-area">
                 <select id="cart-product-select"></select>
@@ -102,7 +108,10 @@
             <div id="cart-items-list" class="cart-list-view"></div>
             <div class="cart-summary">
                 <h3>Total: <span id="cart-total-price">$0</span></h3>
-                <button id="btn-confirm-payment" class="btn-primary payment-btn">Confirmar Pago</button>
+                <div class="cart-buttons-row">
+                    <button id="btn-clear-cart" class="btn-clear">Limpiar Carrito</button>
+                    <button id="btn-confirm-payment" class="btn-primary payment-btn">Confirmar Pago</button>
+                </div>
             </div>
         </div>
     </div>
