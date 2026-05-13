@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uni-Shoppin | Tech Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="inicio">
+
+    <div class="side-ribbon left">
+        <div class="ribbon-track" id="track-left">
+            <img src="img/Fondo lat 1.webp" alt="Decoración Tech">
+        </div>
+    </div>
+
+    <div class="side-ribbon right">
+        <div class="ribbon-track" id="track-right">
+            <img src="img/Fondo lat 1.webp" alt="Decoración Tech">
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">Uni-<span>Shoppin</span></div>
+        <div class="nav-links">
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#" id="btn-open-about" class="nav-link">Sobre Nosotros</a>
+            <a href="#catalogo" class="nav-link">Catálogo</a>
+            <a href="#feedback" class="nav-link">Reclamos</a>
+            <a href="#" id="btn-open-cart" class="nav-link cart-highlight">Carrito (<span id="cart-count">0</span>)</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="catalogo" class="styled-box">
+            <h2>Catálogo de Productos</h2>
+            <div class="catalog-window" id="catalog-window">
+                </div>
+            
+            <button id="btn-show-form" class="btn-round-add" title="Añadir producto">+</button>
+
+            <div id="add-form-container" class="hidden-form">
+                <h3>Añadir Nuevo Producto</h3>
+                <form id="item-form">
+                    <div class="input-row">
+                        <input type="text" id="item-name" placeholder="Nombre del Producto" required>
+                        <input type="number" id="item-price" placeholder="Precio ($)" required>
+                    </div>
+                    <textarea id="item-desc" placeholder="Descripción breve" rows="3" required></textarea>
+                    <button type="submit" class="btn-primary">Añadir al Catálogo</button>
+                    <button type="button" id="btn-cancel-form" class="btn-secondary">Cancelar</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="feedback" class="styled-box">
+            <h2>Feedback y Sugerencias</h2>
+            <form id="user-feedback-form">
+                <div class="input-row">
+                    <input type="text" placeholder="Nombre Completo" required>
+                    <input type="email" placeholder="Correo Electrónico" required>
+                </div>
+                <textarea rows="4" placeholder="Describe tu observación aquí..." required></textarea>
+                <button type="button" class="btn-primary">Enviar Comentarios</button>
+            </form>
+        </section>
+
+        <footer class="styled-box">
+            <h2>Contacto</h2>
+            <p>Ubicación: Libertad 1520, Santiago Centro | Email: soporte@unishopping.cl</p>
+        </footer>
+    </main>
+
+    <div id="about-modal" class="modal-overlay">
+        <div class="styled-box modal-content">
+            <span id="btn-close-about" class="close-modal">&times;</span>
+            <h2>Sobre Uni-Shoppin</h2>
+            <p>Somos tu plataforma tecnológica de confianza en Maipú. Nos especializamos en ofrecer los mejores periféricos, componentes y equipos para potenciar tu experiencia digital. Nuestro compromiso es la eficiencia en la gestión de tus pedidos y la calidad en cada producto.</p>
+            <button id="btn-close-about-bottom" class="btn-primary">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="cart-modal" class="modal-overlay">
+        <div class="styled-box modal-content">
+            <span id="btn-close-cart" class="close-modal">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div class="cart-selection-area">
+                <label>Producto:</label>
+                <select id="cart-product-select"></select>
+                <label>Cantidad:</label>
+                <input type="number" id="cart-quantity" value="1" min="1">
+                <button id="btn-add-to-cart" class="btn-primary">Sumar al Pedido</button>
+            </div>
+            <hr class="divider">
+            <div id="cart-items-list"></div>
+            <h3>Total: <span id="cart-total-price">$0</span></h3>
+        </div>
+    </div>
+
+    <button id="btn-top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
